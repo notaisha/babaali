@@ -1,4 +1,3 @@
-streamlit_calendar 
 datetime
 collections
 matplotlib
