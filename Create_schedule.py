@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 #from streamlit_calendar import calendar
 from datetime import datetime, timedelta
-from collections import Counter
 import matplotlib.pyplot as plt
 
 st.title("Baba Ali Scheduler :calendar:")
@@ -18,7 +17,10 @@ shifts = st.multiselect("Shifts:", ["11:00am-2:30pm", "2:30pm-6:00pm", "6:00-10:
 off_days = int(len(carers)-len(shifts))
 days_off_list = ["Break"]*off_days
 if off_days > 1:
-    days_off_list = [ f"{a}{c[a]}" for c in [Counter()] for a in days_off_list if [c.update([a])] ]
+    days_off_list = []
+    for i in range(1,off_days):
+        days_off_list.append(f"Break{i}")
+    days_off_list = c in [Counter()] for a in days_off_list if [c.update([a])] ]
 shifts= shifts+days_off_list 
 
 
