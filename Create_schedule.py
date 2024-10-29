@@ -20,7 +20,7 @@ if off_days > 1:
     days_off_list = []
     for i in range(1,off_days):
         days_off_list.append(f"Break{i}")
-    days_off_list = c in [Counter()] for a in days_off_list if [c.update([a])] ]
+    #days_off_list = c in [Counter()] for a in days_off_list if [c.update([a])] ]
 shifts= shifts+days_off_list 
 
 
