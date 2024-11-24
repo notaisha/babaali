@@ -22,7 +22,7 @@ shifts = shifts + days_off_list
 "_______"
 
 date_range = pd.Series(pd.date_range(start_date, end_date, freq="d"))
-days_of_the_week = {"0": "Monday", "1": "Tuesday", "2": "Wednesday", "3": "Thursday", "4": "Friday", "5": "Saturday", "6": "Sunday"}
+days_of_the_week = {"0": "Mon", "1": "Tue", "2": "Wed", "3": "Thu", "4": "Fri", "5": "Sat", "6": "Sun"}
 
 df = pd.DataFrame()
 dates = []
@@ -81,6 +81,7 @@ colors = {
 wrapped_headers = [header for header in df.columns]
 table = ax.table(cellText=df.values, colLabels=wrapped_headers, rowLabels=df.index, loc='center')
 table.auto_set_font_size(False)
+table.set_fontsize(12)
 table.scale(xscale=1, yscale=2)
 
 # Apply font size, bold text, and background colors
