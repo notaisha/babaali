@@ -72,6 +72,7 @@ fig.patch.set_visible(False)
 ax.axis('off')
 table = ax.table(cellText=df.values, colLabels=df.columns, rowLabels=df.index, loc='center')
 table.set_fontsize(font_size)
+table.scale(xscale=1, yscale=2)
 
 fig
 
