@@ -49,7 +49,7 @@ for shift in shifts:
                 dict[shift] = [carers[i]]
             i = (i + 1) % len(carers)
 
-font_size = st.number_input("Table picture font size:", value=12)
+font_size = st.number_input("Table picture font size:", value=15)
 
 for item in dict:
     df[item] = dict[item]
