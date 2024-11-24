@@ -85,9 +85,9 @@ table.scale(xscale=1, yscale=2)
 
 # Apply font size, bold text, and background colors
 for (row, col), cell in table.get_celld().items():
-    st.write(cell.get_text())
+    #st.write(cell.get_text())
     if row > 0 and col >= 0:  # Skip header row and column
-        st.write(cell.get_text(), "not skipped")
+        #st.write(cell.get_text(), "not skipped")
         cell.set_fontsize(font_size)
         #cell.set_text_props(fontweight='bold')
         caregiver = cell.get_text().get_text()  # Get cell text
