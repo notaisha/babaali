@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
-import textwrap
 
 st.title("Baba Ali Scheduler :calendar:")
 
@@ -12,7 +11,8 @@ number_of_days = (end_date - start_date).days
 
 st.info(":bulb: The first person in the list below will have the first shift on the first day selected. The second person will have the second shift on the first day, and so on.")
 carers = st.multiselect("Care providers:", ["Nawal", "Nemat", "Mohammad", "Hanan", "Amal", "Amina", "Other"], default=["Nawal", "Hanan", "Nemat", "Amina"])
-shifts = st.multiselect("Shifts:", ["12:00pm-3:30pm", "3:30pm-7:00pm", "7:00-10:00", "Shift1", "Shift2", "Shift3", "Shift4", "Other"], default=["12:00pm-3:30pm", "3:30pm-7:00pm", "7:00-10:00"]) 
+shifts = st.multiselect("Shifts:", ["12:00-3:30", "3:30-7:00", "7:00-10:00", "Shift1", "Shift2", "Shift3", "Shift4", "Other"], default=["12:00-3:30", "3:30-7:00", "7:00-10:00"])
+
 off_days = int(len(carers) - len(shifts))
 days_off_list = ["Break"] * off_days
 if off_days > 1:
@@ -78,7 +78,7 @@ colors = {
 }
 
 # Create the table
-wrapped_headers = [textwrap.fill(header, width=10) for header in df.columns]
+wrapped_headers = [header for header in df.columns]
 table = ax.table(cellText=df.values, colLabels=wrapped_headers, rowLabels=df.index, loc='center')
 table.auto_set_font_size(False)
 table.scale(xscale=1, yscale=2)
@@ -87,7 +87,7 @@ table.scale(xscale=1, yscale=2)
 for (row, col), cell in table.get_celld().items():
     if row > 0 and col > 0:  # Skip header row and column
         cell.set_fontsize(font_size)
-        cell.set_text_props(fontweight='bold')
+        #cell.set_text_props(fontweight='bold')
         caregiver = cell.get_text().get_text()  # Get cell text
         cell.set_facecolor(colors.get(caregiver, "#FFFFFF"))  # Set color based on caregiver
 
