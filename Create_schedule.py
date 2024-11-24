@@ -22,7 +22,7 @@ shifts = shifts + days_off_list
 "_______"
 
 date_range = pd.Series(pd.date_range(start_date, end_date, freq="d"))
-days_of_the_week = {"0": "Mon", "1": "Tue", "2": "Wed", "3": "Thu", "4": "Fri", "5": "Sat", "6": "Sun"}
+days_of_the_week = {"0": "Monday", "1": "Tuesday", "2": "Wednesday", "3": "Thursday", "4": "Friday", "5": "Saturday", "6": "Sunday"}
 
 df = pd.DataFrame()
 dates = []
@@ -67,12 +67,12 @@ ax.axis('off')
 
 # Define colors for each caregiver
 colors = {
-    "Nawal": "#CCFFCC",
-    "Nemat": "#c6b2d2",
+    "Nawal": "#E5FFE5",
+    "Nemat": "#D6E4FF",
     "Mohammad": "#CCCCFF",
-    "Hanan": "#FFFFCC",
+    "Hanan": "#FFF3E6",
     "Amal": "#FFCCFF",
-    "Amina": "#CCE5FF",
+    "Amina": "#FFE6F2",
     "Other": "#D3D3D3",
     "Break": "#FFFFFF",  # White for break/off days
 }
