@@ -12,7 +12,7 @@ number_of_days = (end_date - start_date).days
 #number_of_days
 
 st.info(":bulb: The first person in the list below will have the first shift on the first day selected. The second person will have the second shift on the first day, and so on.")
-carers = st.multiselect("Care providers:", ["Nawal","Nemat", "Mohammad", "Hanan", "Amal", "Amina", "Other"], default = ["Hanan", "Nemat", "Amina", "Nawal"])
+carers = st.multiselect("Care providers:", ["Nawal","Nemat", "Mohammad", "Hanan", "Amal", "Amina", "Other"], default = ["Nawal", "Hanan", "Nemat", "Amina"])
 shifts = st.multiselect("Shifts:", ["12:00pm-3:30pm", "3:30pm-7:00pm", "7:00-10:00", "Shift1", "Shift2", "Shift3", "Shift4","Other"], default = ["12:00pm-3:30pm", "3:30pm-7:00pm", "7:00-10:00"]) 
 off_days = int(len(carers)-len(shifts))
 days_off_list = ["Break"]*off_days
@@ -64,16 +64,14 @@ df.index = df["Dates"]
 df = df.drop("Dates", axis=1)
 st.dataframe(df, use_container_width=True)
 
+font_size = st.number_input("Table picture font size:", value = 12)
 
 fig, ax = plt.subplots()
 # hide axes
 fig.patch.set_visible(False)
 ax.axis('off')
-#ax.axis('tight')
-ax.table(cellText=df.values, colLabels=df.columns, rowLabels=df.index, loc='center')
-#ax.set_fontsize(14)
-#fig.tight_layout()
-#image_name = f"Baba_Ali_schedule_{start_date.strftime('%d-%m-%Y')}_to_{end_date.strftime('%d-%m-%Y')}"
-#fig.savefig(image_name)
+table = ax.table(cellText=df.values, colLabels=df.columns, rowLabels=df.index, loc='center')
+table.set_fontsize(font_size)
+
 fig
 
