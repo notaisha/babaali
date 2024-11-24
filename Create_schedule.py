@@ -22,7 +22,7 @@ shifts = shifts + days_off_list
 "_______"
 
 date_range = pd.Series(pd.date_range(start_date, end_date, freq="d"))
-days_of_the_week = {"0": "Monday", "1": "Tuesday", "2": "Wednesday", "3": "Thursday", "4": "Friday", "5": "Saturday", "6": "Sunday"}
+days_of_the_week = {"0": "Mon", "1": "Tue", "2": "Wed", "3": "Thu", "4": "Fri", "5": "Sat", "6": "Sun"}
 
 df = pd.DataFrame()
 dates = []
@@ -31,7 +31,7 @@ for date in list(date_range.dt.date):
     weekdays.append(days_of_the_week[str(date.weekday())])
     dates.append(date.strftime('%d/%m/%Y'))
 df["Dates"] = dates
-df["Days"] = weekdays
+df["Day"] = weekdays
 
 dict = {}
 for shift in shifts:
@@ -87,7 +87,7 @@ table.scale(xscale=1, yscale=2)
 for (row, col), cell in table.get_celld().items():
     if row > 0 and col > 0:  # Skip header row and column
         cell.set_fontsize(font_size)
-        cell.set_text_props(fontweight='bold')
+        #cell.set_text_props(fontweight='bold')
         caregiver = cell.get_text().get_text()  # Get cell text
         cell.set_facecolor(colors.get(caregiver, "#FFFFFF"))  # Set color based on caregiver
 
