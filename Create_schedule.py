@@ -79,7 +79,7 @@ colors = {
 
 # Create the table
 wrapped_headers = [header for header in df.columns]
-table = ax.table(cellText=df.values, colLabels=wrapped_headers, rowLabels=df.index, loc='center')
+table = ax.table(cellText=df.values, colLabels=wrapped_headers, rowLabels=df.index, loc='center', cellLoc='center')
 table.auto_set_font_size(False)
 table.scale(xscale=1, yscale=2)
 
