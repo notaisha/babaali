@@ -57,14 +57,16 @@ for shift in shifts:
                 dict[shift]=[carers[i]]
             i=(i+1)%len(carers)
             #st.write(weekday, shift, i)
-        
+
+font_size = st.number_input("Table picture font size:", value = 12)
+
 for item in dict:
     df[item]=dict[item] 
 df.index = df["Dates"]
 df = df.drop("Dates", axis=1)
-st.dataframe(df, use_container_width=True)
-
-font_size = st.number_input("Table picture font size:", value = 12)
+show_table = st.toggle("Show table", value = False)
+if show_table:
+    st.dataframe(df, use_container_width=True)
 
 fig, ax = plt.subplots()
 # hide axes
