@@ -37,7 +37,7 @@ dict = {}
 for shift in shifts:
     i = shifts.index(shift)
     for weekday in weekdays:
-        if weekday == "Thu":
+        if weekday == "Thur":
             if shift in dict:
                 dict[shift].append("-")
             else:
