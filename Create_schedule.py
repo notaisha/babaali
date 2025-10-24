@@ -20,11 +20,16 @@ hanan_special = "Hanan" in carers and st.toggle(
 )
 
 # Pad shifts to match carers with break columns (does NOT force/avoid Hanan breaks)
-off_days = int(len(carers) - len(shifts))
-days_off_list = ["Break"] * off_days
-if off_days > 1:
-    days_off_list = [f"Break{i}" for i in range(1, off_days)]
-shifts = shifts + days_off_list
+# --- ensure total shifts + breaks == carers ---
+off_days = len(carers) - len(shifts)
+
+# if there are more carers than (shifts + breaks), keep adding breaks until equal
+if off_days > 0:
+    days_off_list = []
+    for i in range(off_days):
+        days_off_list.append("Break" if i == 0 else f"Break{i+1}")
+    shifts = shifts + days_off_list
+
 
 "_______"
 
